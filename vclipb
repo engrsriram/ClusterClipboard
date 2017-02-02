@@ -1,0 +1,36 @@
+#!/usr/bin/env python
+import socket
+import sys
+import datetime
+import tempfile
+
+s = socket.socket()
+host = "192.168.60.150"
+port = 12345
+
+s.connect((host, port))
+GET = "GET"
+s.send(GET)
+firstresult = s.recv(1024)
+if not firstresult:
+    exit(0)
+
+if len(sys.argv) > 1:
+    s.send(sys.argv[1])
+else:
+    now = datetime.datetime.now()
+    now1 = now.strftime("%d%b%Y-%H:%M")
+    s.send(now1)
+e = s.recv(1024)
+if e == "ready": 
+    fp = tempfile.TemporaryFile()
+    l = c.recv(1024)
+    while (l):
+        print "Receiving..."
+        fp.write(l)
+        l = c.recv(1024)
+    print(fp)
+    fp.close()
+print "Done Sending"
+s.close
+
