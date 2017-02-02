@@ -1,5 +1,7 @@
 # ClusterClipboard
-simple code will help in copy , paste work across Cluster of compute
+simple code will help in copy , paste work across Cluster of computer
+
+if you need copy , paste functionality and key based saving function across cluster of machine then this is for you. 
 
 this project will provide helping hand in copy , paste work across cluster . 
 
