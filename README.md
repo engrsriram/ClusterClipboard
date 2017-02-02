@@ -12,7 +12,7 @@ eg:
 `grep "ERROR" | clipb <key>`
 
 
-When ever User need to get those information , then can simple use `vclipb <key>` with privided key. this will fetch details from the Server with given key and display it into Stdout . 
+When ever User need to get those information , then you can use `vclipb <key>` with assigned key. this will fetch details from the Server for given key and display it into Stdout . 
 
 
 
