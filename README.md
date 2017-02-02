@@ -14,3 +14,28 @@ eg:
 
 When ever User need to get those information , then can simple use `vclipb <key>` with privided key. this will fetch details from the Server with given key and display it into Stdout . 
 
+
+
+## setup information 
+### SERVER
+server.py is server script which is used to record all the copies . 
+
+this should kept in machine from where all the machines can be assible. 
+
+`python server.py`
+
+### CLIENT
+
+clipb   & vclipb both are python script which need to be kept in PATH variable. so that , it can be called from any where. 
+
+example:
+
+`ping google.com  -c 3 | clipb pg`
+
+above command will records 3 ping result and related inforation , and save it in SERVER machine (machine where server.py runs). 
+"pg" will act as a key , which can be used to retrive it later. 
+
+to retrive use
+
+ `vclipb pg ` this will do stdout print result into command prompt. 
+
