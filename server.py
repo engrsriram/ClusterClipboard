@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#!/usr/bin/env python
 import socket               # Import socket module
 import sys
 s = socket.socket()         # Create a socket object
@@ -6,7 +7,7 @@ s = socket.socket()         # Create a socket object
 host = "192.168.60.150"
 port = 12345                 # Reserve a port for your service.
 s.bind((host, port))        # Bind to the port
-f = open('torecv.png','wb')
+#f = open('torecv.png','wb')
 s.listen(5)                 # Now wait for client connection.
 while True:
     c, addr = s.accept()     # Establish connection with client.
@@ -15,6 +16,7 @@ while True:
     l = c.recv(1024)
     #ll = dict(l)
     method = l
+    print(method)
     if method == "PUT":
         c.send("OK")
         filename = c.recv(1024)
@@ -34,10 +36,8 @@ while True:
         with open(l) as f:
             print 'Sending...'
             print(f )
-            for line in f:
-                print(line)			    
-                s.sendall(line)
-        s.shutdown(socket.SHUT_WR)
+            p = f.read(1024)
+            c.send(p)
+        c.shutdown(socket.SHUT_WR)
     print "Done Receiving"
-    c.send('Dok')
     c.close()
